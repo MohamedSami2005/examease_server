@@ -7,6 +7,7 @@ const Student = require('./router/login/login')
 const Uploads = require('./router/fileUpload/fileupload')
 const Controls = require('./router/controls/controls')
 const Exam =  require('./router/exam/exam')
+const QuestionRoutes = require('./router/question/question');
 // const bcrypt = require('bcryptjs');
 
 const app = express()
@@ -20,7 +21,9 @@ app.use(express.json())
 app.use('/api', Student);
 app.use('/api', Uploads);
 app.use('/api', Controls);
-app.use('/api', Exam)
+app.use('/api', Exam);
+app.use('/api', QuestionRoutes);
+
 
 mongoose.connect(process.env.MONGO_URI).then(() => {
     console.log('Connected to MongoDB');
